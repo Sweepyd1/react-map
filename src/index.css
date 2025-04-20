@@ -1,3 +1,21 @@
+.leaflet-container {
+  height: 100vh;  
+  width: 100%;
+  z-index: 1000;
+}
+
+
+.map-wrapper {
+  height: 100vh;
+  width: 100vw;
+}
+.leaflet-control-attribution {
+  display: none !important;
+}
+
+.leaflet-control-attribution a[href*="ukraine"] {
+  display: none !important;
+}
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
