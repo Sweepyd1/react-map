@@ -1,0 +1,147 @@
+
+.map-container {
+    padding: 2rem;
+    width: 120%;
+    margin: 0 auto;
+    background-color: #1a1a1a;
+    min-height: 100vh;
+  }
+  
+  .control-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    background-color: #2d2d2d;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+  }
+  
+  .point-card {
+    background-color: #333;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  .point-title {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 100%;
+  }
+  
+.coordinate-input{
+    width: 100%;
+} 
+
+  .input-label {
+    color: #fff;
+    display: block;
+    margin-bottom: 0.3rem;
+    
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #222;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  
+
+
+  .btn-randomize {
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 101%;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    
+  }
+  
+  .btn-randomize-1 {
+    background-color: #4CAF50;
+  }
+  
+  .btn-randomize-1:hover {
+    background-color: #45a049;
+  }
+  
+  .btn-randomize-2 {
+    background-color: #2196F3;
+  }
+  
+  .btn-randomize-2:hover {
+    background-color: #1976D2;
+  }
+  
+  .toggle-panel {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .btn-toggle {
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .btn-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-toggle.active {
+    background-color: #ff4444;
+  }
+  
+  .btn-toggle.inactive {
+    background-color: #9C27B0;
+  }
+  
+  .error-message {
+    grid-column: 1 / -1;
+    background-color: #ff4444;
+    color: white;
+    padding: 1rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .map-wrapper {
+    height: 600px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid #444;
+  }
+  
+
+  @media (max-width: 768px) {
+    .control-panel {
+      grid-template-columns: 1fr;
+    }
+    
+    .map-container {
+      padding: 1rem;
+    }
+    
+    .map-wrapper {
+      height: 400px;
+    }
+  }

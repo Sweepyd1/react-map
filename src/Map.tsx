@@ -4,6 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import './MapComponent.css';
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -75,76 +76,85 @@ const MapComponent = () => {
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto' }}>
-      <div style={{ marginBottom: '20px' }}>
-        <div style={{ marginBottom: '10px' }}>
-          <h3>Point 1</h3>
-          <label>
-            Latitude:
-            <input
-              type="number"
-              value={position1[0]}
-              onChange={(e) => handleCoordinateChange(setPosition1, 0, e.target.value, 'lat')}
-              step="0.000001"
-              style={{ margin: '0 10px' }}
-            />
-          </label>
-          <label>
-            Longitude:
-            <input
-              type="number"
-              value={position1[1]}
-              onChange={(e) => handleCoordinateChange(setPosition1, 1, e.target.value, 'lng')}
-              step="0.000001"
-              style={{ margin: '0 10px' }}
-            />
-          </label>
-          <button onClick={() => setPosition1(generateRandomCoordinate())}>
-            Randomize
+    <div className="map-container">
+      <div className="control-panel">
+        {}
+        <div className="point-card point-1">
+          <h3 className="point-title">📍 Point 1</h3>
+          <input
+            type="number"
+            className="coordinate-input"
+            value={position1[0]}
+            onChange={(e) => handleCoordinateChange(setPosition1, 0, e.target.value, 'lat')}
+            step="0.000001"
+            placeholder="Enter latitude"
+          />
+          <input
+            type="number"
+            className="coordinate-input"
+            value={position1[1]}
+            onChange={(e) => handleCoordinateChange(setPosition1, 1, e.target.value, 'lng')}
+            step="0.000001"
+            placeholder="Enter longitude"
+          />
+          <button 
+            className="btn btn-randomize btn-randomize-1"
+            onClick={() => setPosition1(generateRandomCoordinate())}
+          >
+            🎲 Randomize Point 1
           </button>
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <h3>Point 2</h3>
-          <label>
-            Latitude:
-            <input
-              type="number"
-              value={position2[0]}
-              onChange={(e) => handleCoordinateChange(setPosition2, 0, e.target.value, 'lat')}
-              step="0.000001"
-              style={{ margin: '0 10px' }}
-            />
-          </label>
-          <label>
-            Longitude:
-            <input
-              type="number"
-              value={position2[1]}
-              onChange={(e) => handleCoordinateChange(setPosition2, 1, e.target.value, 'lng')}
-              step="0.000001"
-              style={{ margin: '0 10px' }}
-            />
-          </label>
-          <button onClick={() => setPosition2(generateRandomCoordinate())}>
-            Randomize
+        {}
+        <div className="point-card point-2">
+          <h3 className="point-title">📍 Point 2</h3>
+          <input
+            type="number"
+            className="coordinate-input"
+            value={position2[0]}
+            onChange={(e) => handleCoordinateChange(setPosition2, 0, e.target.value, 'lat')}
+            step="0.000001"
+            placeholder="Enter latitude"
+          />
+          <input
+            type="number"
+            className="coordinate-input"
+            value={position2[1]}
+            onChange={(e) => handleCoordinateChange(setPosition2, 1, e.target.value, 'lng')}
+            step="0.000001"
+            placeholder="Enter longitude"
+          />
+          <button 
+            className="btn btn-randomize btn-randomize-2"
+            onClick={() => setPosition2(generateRandomCoordinate())}
+          >
+            🎲 Randomize Point 2
           </button>
         </div>
 
-        <button 
-          onClick={() => setLineVisible(!lineVisible)}
-          style={{ marginBottom: '10px' }}
-        >
-          {lineVisible ? 'Hide Line' : 'Show Line'}
-        </button>
+        {}
+        <div className="toggle-panel">
+          <button 
+            className={`btn btn-toggle ${lineVisible ? 'active' : ''}`}
+            onClick={() => setLineVisible(!lineVisible)}
+          >
+            {lineVisible ? '🚫 Hide Connection' : '🔗 Show Connection'}
+          </button>
+        </div>
 
-        {error && <div style={{ color: 'red' }}>{error}</div>}
+        {}
+        {error && (
+          <div className="error-message">
+            ⚠️ {error}
+          </div>
+        )}
       </div>
 
+      {}
       <MapContainer
         center={position1}
         zoom={13}
-        style={{ height: '500px', width: '100%', borderRadius: '8px' }}
+        className="map-wrapper"
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
